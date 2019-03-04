@@ -13,8 +13,8 @@ vcloud:
     host: etcd.internal
     port: 2379
     # You can left below fields empty to not using TLS
-    ca_cert: /etc/kubernetes/pki/etcd/ca.crt
-    cert: /etc/kubernetes/pki/etcd/server.crt
-    key: /etc/kubernetes/pki/etcd/server.key
+    ca_cert: /etc/ssl/etcd/etcd-ca.crt
+    cert: /etc/ssl/etcd/etcd.crt
+    key: /etc/ssl/etcd/etcd.key
     timeout: 5
   debug: True
