@@ -101,7 +101,7 @@ def detach(ctx,
                 # Make sure task is completed
                 task = Client.ctx.client.get_task_monitor().wait_for_status(
                     task=is_disk_detached,
-                    timeout=60,
+                    timeout=600,
                     poll_frequency=2,
                     fail_on_statuses=None,
                     expected_target_statuses=[

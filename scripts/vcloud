@@ -6,5 +6,5 @@ cmd="$1"
 shift
 argc="$#"
 echo "cmd: $cmd args: #$argc => [$@]" | logger -t vcloud-flexvolume -p local0.debug
-set -- /usr/local/bin/vcloud-flexvolume $cmd "$@"
+set -- /usr/bin/vcloud-flexvolume $cmd "$@"
 exec "$@"

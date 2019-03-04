@@ -145,7 +145,7 @@ def attach(ctx,
                 # Make sure task is completed
                 task = Client.ctx.client.get_task_monitor().wait_for_status(
                     task=is_disk_attached,
-                    timeout=60,
+                    timeout=600,
                     poll_frequency=2,
                     fail_on_statuses=None,
                     expected_target_statuses=[
@@ -199,7 +199,7 @@ def attach(ctx,
         if len(partitions) == 0:
             try:
                 # See: http://man7.org/linux/man-pages/man8/sfdisk.8.html
-                cmd_create_partition = ("echo -n ',,83;' | sfdisk %s") % (device_name)
+                cmd_create_partition = ("echo -e ',,83;' | sfdisk %s") % (device_name)
                 subprocess.check_call(
                         cmd_create_partition,
                         shell=True,

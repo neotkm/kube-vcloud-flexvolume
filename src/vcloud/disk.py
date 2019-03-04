@@ -33,7 +33,7 @@ def create_disk(ctx, name, size, storage_profile_name, bus_type=None, bus_sub_ty
         )
         task = ctx.client.get_task_monitor().wait_for_status(
             task=disk_resource.Tasks.Task[0],
-            timeout=60,
+            timeout=600,
             poll_frequency=2,
             fail_on_statuses=None,
             expected_target_statuses=[
@@ -83,7 +83,7 @@ def attach_disk(ctx, vm_name, disk_name, block=False):
                     if block == True:
                         task = ctx.client.get_task_monitor().wait_for_status(
                             task=result,
-                            timeout=60,
+                            timeout=600,
                             poll_frequency=2,
                             fail_on_statuses=None,
                             expected_target_statuses=[
@@ -116,7 +116,7 @@ def detach_disk(ctx, vm_name, disk_name, block=False):
                     if block == True:
                         task = ctx.client.get_task_monitor().wait_for_status(
                             task=result,
-                            timeout=60,
+                            timeout=600,
                             poll_frequency=2,
                             fail_on_statuses=None,
                             expected_target_statuses=[
